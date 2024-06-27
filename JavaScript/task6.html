@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        body {
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .login-box {
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+        .login-box h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .login-box .input-group {
+            display: flex;
+            align-items: center;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #fafafa;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: #f1f1f1;
+        }
+        .login-box .input-group img {
+            width: 20px;
+            margin-right: 10px;
+        }
+        .login-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: none;
+            padding: 10px;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3897f0;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .login-box button:hover {
+            background-color: #3282d1;
+        }
+        .login-box .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        .login-box .options input {
+            margin-right: 5px;
+        }
+        .login-box .options label {
+            display: flex;
+            align-items: center;
+            color: #000;
+        }
+        .login-box .options a {
+            color: #3897f0;
+            text-decoration: underline;
+        }
+        .login-box .options a:hover {
+            text-decoration: underline;
+        }
+        .signup-link {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .signup-link a {
+            color: #3897f0;
+            text-decoration: none;
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Instagram</h1>
+        <form>
+            <div class="input-group">
+                <img src="https://img.icons8.com/material-outlined/24/000000/user--v1.png" alt="User Icon">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <img src="https://img.icons8.com/material-outlined/24/000000/lock--v1.png" alt="Lock Icon">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <button type="submit">Log In</button>
+            <div class="options">
+                <label>
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+    <div class="signup-link">
+        Don't have an account! <a href="#">Sign up here</a>
+    </div>
+</body>
+</html>

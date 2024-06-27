@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .navy {
+            color: navy;
+        }
+        .train-img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            transform: translateX(0); 
+        }
+        @keyframes moveTrain {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(200px);
+            }
+        }
+        .animating {
+            animation: moveTrain 2s linear infinite alternate;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="train-img" src="C:\Users\Sakthi\OneDrive\Desktop\BS & JS\JavaScript\Train.png" alt="Train Image">
+        <div class="navy">
+            <h2>Click the following buttons to handle animation</h2>
+        </div>
+        <div class="btn-container">
+            <button onclick="startAnimation()">Start</button>
+            <button onclick="stopAnimation()">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        let animationInterval;
+        const trainImg = document.querySelector('.train-img');
+
+        function startAnimation() {
+            trainImg.classList.add('animating');
+        }
+
+        function stopAnimation() {
+            trainImg.classList.remove('animating');
+        }
+    </script>
+</body>
+</html>

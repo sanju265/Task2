@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .form-container {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .input-group-text {
+            width: 2.5rem;
+        }
+        .input-group .form-control:invalid {
+            border-color: red;
+        }
+        .input-group .form-control:invalid + .input-group-append .input-group-text {
+            border-color: red;
+            background-color: #f8d7da;
+            color: red;
+        }
+        .input-group .form-control:invalid ~ .invalid-feedback {
+            display: block;
+        }
+        .invalid-feedback {
+            display: none;
+            color: red;
+        }
+        .btn-custom {
+            background-color: yellow;
+            color: black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="form-container">
+            <form id="myForm" novalidate>
+                <div class="form-group row">
+                    <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-times"></i></span>
+                            </div>
+                            <div class="invalid-feedback">Please supply your first name</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lastName" class="col-sm-3 col-form-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-times"></i></span>
+                            </div>
+                            <div class="invalid-feedback">Please supply your last name</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-3 col-form-label">E-mail</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="email" placeholder="E-mail Address" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-times"></i></span>
+                            </div>
+                            <div class="invalid-feedback">Please supply your email address</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="phone" class="col-sm-3 col-form-label">Phone #</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            </div>
+                            <input type="tel" class="form-control" id="phone" placeholder="(845)55-1212" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-times"></i></span>
+                            </div>
+                            <div class="invalid-feedback">Please supply your phone number</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="address" class="col-sm-3 col-form-label">Address</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-home"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="address" placeholder="Address" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-times"></i></span>
+                            </div>
+                            <div class="invalid-feedback">Please supply your street address</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="city" class="col-sm-3 col-form-label">City</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-city"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="city" placeholder="City" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-times"></i></span>
+                            </div>
+                            <div class="invalid-feedback">Please supply your city</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="state" class="col-sm-3 col-form-label">State</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-list"></i></span>
+                            </div>
+                            <select class="form-control" id="state" required>
+                                <option value="" disabled selected>Please select your state</option>
+                                <option value="NY">New York</option>
+                                <option value="CA">California</option>
+                                <option value="TX">Texas</option>
+                            </select>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-times"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Do you have hosting?</label>
+                    <div class="col-sm-9">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="hosting" id="hostingYes" value="yes" required>
+                            <label class="form-check-label" for="hostingYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="hosting" id="hostingNo" value="no" required>
+                            <label class="form-check-label" for="hostingNo">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-sm-3 col-form-label">Project Description</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
+                            </div>
+                            <textarea class="form-control" id="description" placeholder="Project Description" rows="3" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-custom">Send <i class="fas fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('myForm');
+            form.addEventListener('submit', function (event) {
+                var inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+                var valid = true;
+
+                inputs.forEach(function (input) {
+                    if (!input.value.trim()) {
+                        input.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        input.classList.remove('is-invalid');
+                    }
+                });
+
+                if (!valid) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            }, false);
+        });
+    </script>
+</body>
+</html>

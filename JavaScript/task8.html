@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 1400px;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #ffe6b3, #ffb366);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 24px; 
+            margin-top: 30px;
+            color: blue;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+            width: 200px; 
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 300px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .radio-label,
+        .checkbox-label {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        .declaration {
+            margin-top: 10px;
+            font-size: 14px; 
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        .hyperlink {
+            float: right;
+            font-size: 12px;
+            color: #0000EE;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <span id="firstNameError" class="error">POOR</span><br>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <span id="lastNameError" class="error">POOR</span><br>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <span id="emailError" class="error">POOR</span><br>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error">POOR</span><br>
+
+            <label for="rePassword">Re-enter Password</label>
+            <input type="password" id="rePassword" name="rePassword" required>
+            <span id="rePasswordError" class="error">POOR OR MISMATCH</span><br>
+
+            <label for="gender">Gender</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label class="radio-label" for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label class="radio-label" for="female">Female</label>
+            <span id="genderError" class="error"></span><br>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
+            <span id="ageError" class="error">POOR</span><br>
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            <span id="phoneNumberError" class="error">POOR</span><br>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+            <span id="addressError" class="error">POOR</span><br>
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" required>
+            <span id="stateError" class="error">POOR</span><br>
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="">Choose your country</option>
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+                <option value="uk">UK</option>
+                <option value="canada">Canada</option>
+            </select>
+            <span id="countryError" class="error">Select country</span><br>
+
+            <label for="languages">Languages known</label>
+            <input type="checkbox" id="english" name="languages" value="english">
+            <label class="checkbox-label" for="english">English</label>
+            <input type="checkbox" id="kannada" name="languages" value="kannada">
+            <label class="checkbox-label" for="kannada">Kannada</label>
+            <input type="checkbox" id="hindi" name="languages" value="hindi">
+            <label class="checkbox-label" for="hindi">Hindi</label>
+            <input type="checkbox" id="telugu" name="languages" value="telugu">
+            <label class="checkbox-label" for="telugu">Telugu</label>
+            <span id="languagesError" class="error">Select at least one language known</span><br>
+
+            <input type="checkbox" id="declaration" name="declaration" required>
+            <label class="checkbox-label declaration" for="declaration">Hereby I declare all the given details are true</label>
+            <span id="declarationError" class="error">Please agree to the declaration</span><br>
+
+            <div class="button-container">
+                <a href="#" class="hyperlink">Login to Ethnus</a>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            
+            document.querySelectorAll('.error').forEach(error => error.textContent = '');
+
+            
+            const firstName = document.getElementById('firstName').value.trim();
+            if (firstName === '') {
+                document.getElementById('firstNameError').textContent = 'POOR';
+                isValid = false;
+            }
+
+            const lastName = document.getElementById('lastName').value.trim();
+            if (lastName === '') {
+                document.getElementById('lastNameError').textContent = 'POOR';
+                isValid = false;
+            }
+
+            const email = document.getElementById('email').value.trim();
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'POOR';
+                isValid = false;
+            }
+
+            const password = document.getElementById('password').value.trim();
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'POOR';
+                isValid = false;
+            }
+
+            const rePassword = document.getElementById('rePassword').value.trim();
+            if (rePassword === '' || rePassword !== password) {
+                document.getElementById('rePasswordError').textContent = 'POOR OR MISMATCH';
+                isValid = false;
+            }
+
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                document.getElementById('genderError').textContent = 'Select gender';
+                isValid = false;
+            }
+
+            const age = document.getElementById('age').value.trim();
+            if (age === '') {
+                document.getElementById('ageError').textContent = 'POOR';
+                isValid = false;
+            }
+
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            if (phoneNumber === '') {
+                document.getElementById('phoneNumberError').textContent = 'POOR';
+                isValid = false;
+            }
+
+            const address = document.getElementById('address').value.trim();
+            if (address === '') {
+                document.getElementById('addressError').textContent = 'POOR';
+                isValid = false;
+            }
+
+            const state = document.getElementById('state').value.trim();
+    if (state === '') {
+        document.getElementById('stateError').textContent = 'POOR';
+        isValid = false;
+    }
+
+    const country = document.getElementById('country').value;
+    if (country === '') {
+        document.getElementById('countryError').textContent = 'Select country';
+        isValid = false;
+    }
+
+    const languages = document.querySelectorAll('input[name="languages"]:checked');
+    if (languages.length === 0) {
+        document.getElementById('languagesError').textContent = 'Select at least one language known';
+        isValid = false;
+    }
+
+    const declaration = document.getElementById('declaration').checked;
+    if (!declaration) {
+        document.getElementById('declarationError').textContent = 'Please agree to the declaration';
+        isValid = false;
+    }
+
+    return isValid;
+    }
+</script>
+</body>
+</html>
